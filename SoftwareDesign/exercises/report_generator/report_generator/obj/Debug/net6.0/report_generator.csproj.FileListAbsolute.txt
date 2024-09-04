@@ -1,0 +1,15 @@
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/bin/Debug/net6.0/report_generator
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/bin/Debug/net6.0/report_generator.deps.json
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/bin/Debug/net6.0/report_generator.runtimeconfig.json
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/bin/Debug/net6.0/report_generator.dll
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/bin/Debug/net6.0/report_generator.pdb
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.csproj.AssemblyReference.cache
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.GeneratedMSBuildEditorConfig.editorconfig
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.AssemblyInfoInputs.cache
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.AssemblyInfo.cs
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.csproj.CoreCompileInputs.cache
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.dll
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/refint/report_generator.dll
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.pdb
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/report_generator.genruntimeconfig.cache
+/home/jas/Documents/Aarhus/SoftwareDesign/exercises/report_generator/report_generator/obj/Debug/net6.0/ref/report_generator.dll
