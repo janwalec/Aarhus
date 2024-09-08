@@ -1,4 +1,5 @@
-/exercises/
-/ComputerGamesDevelopment/
-/other/
-/handson-ml3/
+exercises/
+ComputerGamesDevelopment/
+other/
+handson-ml3/
+*.idea
