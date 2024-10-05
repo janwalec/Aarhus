@@ -10,30 +10,40 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Jan_walczak"
+        android:theme="@style/Theme.Moja_aplikacja"
         tools:targetApi="31">
 
         <activity
-            android:name=".HomeActivity22"
+            android:name=".activities.HomeActivity"
             android:exported="true"
-            android:theme="@style/Theme.Jan_walczak">
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Moja_aplikacja">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".activities.BuyCatsActivity"
             android:exported="true"
-            android:theme="@style/Theme.Jan_walczak">
+            android:theme="@style/Theme.Moja_aplikacja">
         </activity>
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.CatDetailsActivity"
             android:exported="true"
-            android:theme="@style/Theme.Jan_walczak">
+            android:theme="@style/Theme.Moja_aplikacja">
         </activity>
+
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Moja_aplikacja">
+        </activity>
+
+
     </application>
 
 </manifest>

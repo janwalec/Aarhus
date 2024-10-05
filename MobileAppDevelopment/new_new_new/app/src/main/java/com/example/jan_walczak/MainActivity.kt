@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -28,7 +29,6 @@ import com.example.jan_walczak.ui.theme.Jan_walczakTheme
 
 
 class MainActivity : ComponentActivity() {
-    //YetAnotherActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -51,7 +51,6 @@ class MainActivity : ComponentActivity() {
                         state.value = "Search"
                     }
                 )
-
                 Scaffold(
                     modifier = Modifier
                         .fillMaxSize()
@@ -62,14 +61,10 @@ class MainActivity : ComponentActivity() {
                             .fillMaxSize()
                     ) {
                         Drawer(models) {
-                            //when (state.value) {
-                            Cat(modifier = Modifier.fillMaxSize())
-                            // "Search" -> Cat2(modifier = Modifier.fillMaxSize())
-                            //}
+                            Home(modifier = Modifier.fillMaxSize())
                         }
                     }
                 }
-
             }
         }
     }
@@ -89,23 +84,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-@Composable
-fun Cat(modifier: Modifier = Modifier) {
-    Image(
-        modifier = modifier,
-        painter = painterResource(id = R.drawable.cat),
-        contentDescription = "cat"
-    )
-}
-
-@Composable
-fun Cat2(modifier: Modifier = Modifier) {
-    Image(
-        modifier = modifier,
-        painter = painterResource(id = R.drawable.cat_2),
-        contentDescription = "cat"
-    )
-}
 
 /*
 @SuppressLint("RestrictedApi")
@@ -151,7 +129,7 @@ fun SecondScaffold() {
         }
     }
 }
-*/
+
 
 
 @Composable
@@ -174,3 +152,4 @@ fun CustomTopBar(menu: () -> Unit, add: () -> Unit, search : () -> Unit) {
         }
     }
 }
+*/

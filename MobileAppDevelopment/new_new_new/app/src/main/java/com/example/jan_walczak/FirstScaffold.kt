@@ -85,7 +85,7 @@ fun FirstScaffold() {
             modifier = Modifier
                 .padding(innerPadding)
         ) {
-            Cat(Modifier.fillMaxSize())
+            Home(Modifier.fillMaxSize())
             val menuItemModels = listOf(
                 MenuModel(imageVector = Icons.Default.Home, "Home"),
                 MenuModel(imageVector = Icons.Default.DateRange, "Calendar")
