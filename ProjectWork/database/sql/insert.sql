@@ -33,3 +33,6 @@ INSERT INTO Journal(Journal_ID, UserName, Habit_ID, Goal_ID, Current_Streak, Sta
 (3,     'jane_smith', 3, 2, 0, '2024-10-10', 'amount'),
 (4,     'jane_smith', 1, 3, 0, '2024-09-10', 'min'),
 (5,     'alice_johnson', 2, 4, 0, '2024-09-10', 'bool');
+
+INSERT INTO Entry(Entry_ID, Date, Value, Journal_ID) VALUES
+(1, '2008-11-11', "asda", 1)
