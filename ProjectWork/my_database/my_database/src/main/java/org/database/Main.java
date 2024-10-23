@@ -27,13 +27,13 @@ public class Main {
 
 
 
-        /*
+
         DBJournalService journalService = new DBJournalService();
 
         List<Journal> journals = journalService.getUserJournal(get_user);
         for (Journal j : journals) {
             System.out.println(j);
-        }*/
+        }
 
 
 
