@@ -14,29 +14,46 @@ public class Main {
             System.out.println("some exception");
         }
 
-        //User new_user = new User("test_user", "hello", "there", 10);
-        //db.addUser(new_user);
+        /*
+        HabitCategory habitCategory = new HabitCategory("name", "description");
+        DBHabitCategoryService dbHabitCategoryService = new DBHabitCategoryService();
+        dbHabitCategoryService.addHabitCategory(habitCategory);
 
-        DBUserService userService = new DBUserService();
-        User get_user = userService.getUser("john_doe");
-        System.out.println(get_user);
-        userService.updateAge(get_user, 999);
-        userService.updateName(get_user, "John");
-        System.out.println(get_user);
+        HabitCategory to_delete = dbHabitCategoryService.getHabitCategory(5);
+        dbHabitCategoryService.deleteHabitCategory(to_delete);
+
+        DBHabitCategoryService dbHabitCategoryService = new DBHabitCategoryService();
+        HabitCategory hc = dbHabitCategoryService.getHabitCategory(2);
+
+        Habit h = new Habit("habit name", "habit description", hc);
+        System.out.println(h);
+        */
+
+        /*
+            HabitCategory - name + description
+                PK - auto-Increment
+
+            Habit - name + description + HabitCategory
+                PK - auto-Increment
+
+            Goal - value + description
+                PK - auto-Increment
+
+         */
 
 
 
+        DBHabitCategoryService dbhabitCategoryService = new DBHabitCategoryService();
+        HabitCategory hc = dbhabitCategoryService.addHabitCategory("test name", "test_description");
+        System.out.println(hc);
 
+        DBHabitService dbhabitService = new DBHabitService();
+        Habit h = dbhabitService.addHabit("test habit", "test habit description", hc);
+        System.out.println(h);
 
-        DBJournalService journalService = new DBJournalService();
-
-        List<Journal> journals = journalService.getUserJournal(get_user);
-        for (Journal j : journals) {
-            System.out.println(j);
-        }
-
-
-
+        DBGoalService dbgoalService = new DBGoalService();
+        Goal g = dbgoalService.addGoal("test goal", "test_description");
+        System.out.println(g);
 
     }
 }

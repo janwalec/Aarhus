@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 public class Journal {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Journal_ID", nullable = false)
     private Integer id;
 
@@ -27,12 +28,23 @@ public class Journal {
     private Habit habit;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "UserName")
-    private org.database.User user;
+    @JoinColumn(name = "UserName", nullable = false)
+    private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Goal_ID")
+    @JoinColumn(name = "Goal_ID", nullable = false)
     private Goal goal;
+
+    public Journal() {};
+
+    public Journal(Habit habit, Goal goal, User user, String activityType) {
+        setCurrentStreak(0);
+        setHabit(habit);
+        setGoal(goal);
+        setUser(user);
+        setActivityType(activityType);
+        setStartDate(LocalDate.now());
+    }
 
     public Integer getId() {
         return id;
@@ -82,12 +94,12 @@ public class Journal {
         this.habit = habit;
     }
 
-    public org.database.User getUserName() {
+    public User getUser() {
         return user;
     }
 
-    public void setUserName(org.database.User userName) {
-        this.user = userName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Goal getGoal() {
@@ -95,12 +107,13 @@ public class Journal {
     }
 
     public void setGoal(Goal goal) {
+
         this.goal = goal;
     }
 
     @Override
     public String toString() {
-        return ("[JOURNAL '" + id + "' FOR " + user.getUserName() + "]\n" +
+        return ("[JOURNAL FOR " + user.getUserName() + "]\n" +
                 "\tcurrentStreak: " + currentStreak + "\n\tstartDate: " + startDate + "\n\tendDate: "
                 + endDate + "\n\tactivity type: " + activityType + "\n\thabit: " + habit);
     }

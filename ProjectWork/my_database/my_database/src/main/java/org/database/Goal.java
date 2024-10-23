@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Goal {
     @Id
     @Column(name = "Goal_ID", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "Description", length = 1024)
@@ -37,6 +38,18 @@ public class Goal {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public Goal() {}
+
+    public Goal(String description, String value) {
+        this.description = description;
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "[Goal ID: " + this.id.toString() + "\n\tdescription:\n\t" + this.description + "\n\tvalue: " + this.value + "]";
     }
 
 }

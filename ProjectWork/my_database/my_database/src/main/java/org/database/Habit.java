@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Habit {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Habit_ID", nullable = false)
     private Integer id;
 
@@ -16,7 +17,16 @@ public class Habit {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Habit_Cat_ID")
-    private org.database.HabitCategory habitCat;
+    private HabitCategory habitCat;
+
+
+    public Habit() {};
+
+    public Habit(String name, String description, HabitCategory habitCat) {
+        setName(name);
+        setDescription(description);
+        setHabitCat(habitCat);
+    }
 
     public Integer getId() {
         return id;
@@ -42,12 +52,18 @@ public class Habit {
         this.description = description;
     }
 
-    public org.database.HabitCategory getHabitCat() {
+    public HabitCategory getHabitCat() {
         return habitCat;
     }
 
-    public void setHabitCat(org.database.HabitCategory habitCat) {
+    public void setHabitCat(HabitCategory habitCat) {
         this.habitCat = habitCat;
+    }
+
+    @Override
+    public String toString() {
+        return "[HABIT " + name + " id:" + id +
+                "]\n" + "\tdescription: " + description + "\n\t" + habitCat.toString();
     }
 
 }

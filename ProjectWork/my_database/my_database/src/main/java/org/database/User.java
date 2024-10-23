@@ -76,7 +76,7 @@ public class User {
 
     @Override
     public String toString() {
-        return ("{User: " + this.userName + " Name:" + this.name + " Surname:" + this.surname + " Age:" + this.age + "}");
+        return ("[User: " + this.userName + "\n\tName:" + this.name + "\n\tSurname:" + this.surname + "\n\tAge:" + this.age + "]");
     }
 
 }

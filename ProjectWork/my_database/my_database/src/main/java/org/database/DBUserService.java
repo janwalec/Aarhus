@@ -6,19 +6,19 @@ import javax.persistence.EntityNotFoundException;
 public class DBUserService extends DataBase {
 
     public User getUser(String username) {
-        User user = em.find(User.class, username);
-        if (user != null) {
-            return user;
+        User user_in_db = em.find(User.class, username);
+        if (user_in_db != null) {
+            return user_in_db;
         } else {
             throw new EntityNotFoundException("User " + username + " not found");
         }
     }
 
     public void addUser(User user) {
-        User in_db = em.find(User.class, user.getUserName());
+        User user_in_db = em.find(User.class, user.getUserName());
 
-        if (in_db != null) {
-            throw new EntityExistsException("User " + user + " already exists");
+        if (user_in_db != null) {
+            throw new EntityExistsException("User " + user.getUserName() + " already exists");
         }
 
         em.getTransaction().begin();

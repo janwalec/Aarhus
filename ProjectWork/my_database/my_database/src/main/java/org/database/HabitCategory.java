@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 public class HabitCategory {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Habit_Cat_ID", nullable = false)
     private Integer id;
 
@@ -14,6 +15,13 @@ public class HabitCategory {
 
     @Column(name = "Description", length = 1024)
     private String description;
+
+    public HabitCategory() {};
+
+    public HabitCategory(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
 
     public Integer getId() {
         return id;
@@ -38,5 +46,12 @@ public class HabitCategory {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "[HabitCategory\n" + "\tname: " + name + " ID: " + id +
+                "\n\tDescription: " + description + "]";
+    }
+
 
 }
