@@ -37,13 +37,14 @@ public class Journal {
 
     public Journal() {};
 
+    //CurrentStreak, StartDate, (String) ActivityType, Habit, User, Goal
     public Journal(Habit habit, Goal goal, User user, String activityType) {
-        setCurrentStreak(0);
-        setHabit(habit);
-        setGoal(goal);
-        setUser(user);
-        setActivityType(activityType);
-        setStartDate(LocalDate.now());
+        this.currentStreak = 0;
+        this.habit = habit;
+        this.goal = goal;
+        this.user = user;
+        this.activityType = activityType;
+        this.startDate = LocalDate.now();
     }
 
     public Integer getId() {

@@ -1,5 +1,9 @@
 package org.database;
 
+import org.database.services.*;
+
+import java.io.Console;
+import java.sql.SQLOutput;
 import java.util.List;
 
 public class Main {
@@ -8,25 +12,17 @@ public class Main {
         DataBase db = new DataBase();
 
 
-        try{
+        try {
             db.testConnection();
         } catch (Exception e){
             System.out.println("some exception");
         }
 
-        /*
-        HabitCategory habitCategory = new HabitCategory("name", "description");
-        DBHabitCategoryService dbHabitCategoryService = new DBHabitCategoryService();
-        dbHabitCategoryService.addHabitCategory(habitCategory);
-
-        HabitCategory to_delete = dbHabitCategoryService.getHabitCategory(5);
-        dbHabitCategoryService.deleteHabitCategory(to_delete);
-
-        DBHabitCategoryService dbHabitCategoryService = new DBHabitCategoryService();
-        HabitCategory hc = dbHabitCategoryService.getHabitCategory(2);
-
-        Habit h = new Habit("habit name", "habit description", hc);
-        System.out.println(h);
+        /* TODO
+            add email
+            deleter
+            set values for each service
+            check string output
         */
 
         /*
@@ -39,21 +35,56 @@ public class Main {
             Goal - value + description
                 PK - auto-Increment
 
+            Journal - (String) ActivityType, Habit, User, Goal
+                PK - auto-Increment
+
+            Entry - Value, Journal
+                PK - auto-Increment
          */
 
 
+        // create a new user
+        UserService userService = new UserService();
+        try {
+            // set all parameters
+            userService.addUser("walec", "Jan", "W", 21);
+        } catch (Exception e) {
+            System.out.println("---User exists---");
+        }
 
-        DBHabitCategoryService dbhabitCategoryService = new DBHabitCategoryService();
-        HabitCategory hc = dbhabitCategoryService.addHabitCategory("test name", "test_description");
-        System.out.println(hc);
+        User user = userService.getUser("walec"); // get the user instance
+        userService.updateAge(user, 24); // update age if you want
+        userService.updateSurname(user, "Kowalski"); // update surname if you want
+        userService.updateName(user, "Jakub"); // update name if you want
+        System.out.println(user);
+        userService.stopConnection(); // stop the service
 
-        DBHabitService dbhabitService = new DBHabitService();
-        Habit h = dbhabitService.addHabit("test habit", "test habit description", hc);
-        System.out.println(h);
 
-        DBGoalService dbgoalService = new DBGoalService();
-        Goal g = dbgoalService.addGoal("test goal", "test_description");
-        System.out.println(g);
+        // start a service
+        HabitCategoryService habitCategoryService = new HabitCategoryService();
+        // add a habit category (returns HabitCategory)
+        HabitCategory habitCategoryAdded = habitCategoryService.addHabitCategory("healthy", "I want to be very very healthy");
+        System.out.println(habitCategoryAdded);
+
+        
+        // start a habit service
+        HabitService habitService = new HabitService();
+        // add a habit (pass a HabitCategory instance)
+        Habit habitAdded = habitService.addHabit("Horse riding", "I like horses", habitCategoryAdded);
+        System.out.println(habitAdded);
+
+
+
+
+        habitService.deleteHabit(habitAdded);
+        habitService.stopConnection();
+        habitCategoryService.deleteHabitCategory(habitCategoryAdded);
+        habitCategoryService.stopConnection();
+        /*
+        TODO
+        change habitCategory through journal
+        change habit through journal
+         */
 
     }
 }

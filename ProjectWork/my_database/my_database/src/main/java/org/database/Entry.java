@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Entity
 public class Entry {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Entry_ID", nullable = false)
     private Integer id;
 
@@ -19,7 +20,7 @@ public class Entry {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Journal_ID")
-    private org.database.Journal journal;
+    private Journal journal;
 
     public Integer getId() {
         return id;
@@ -45,12 +46,26 @@ public class Entry {
         this.value = value;
     }
 
-    public org.database.Journal getJournal() {
+    public Journal getJournal() {
         return journal;
     }
 
     public void setJournal(org.database.Journal journal) {
         this.journal = journal;
+    }
+
+    public Entry() {};
+
+    public Entry(String value, Journal journal) {
+        this.date = LocalDate.now();
+        this.value = value;
+        this.journal = journal;
+    }
+
+    @Override
+    public String toString() {
+        return "[Entry ID: " + id +
+                "\n\tDate: " + date + "\n\tValue: " + value + "\n\tJournal: " + journal + "]";
     }
 
 }

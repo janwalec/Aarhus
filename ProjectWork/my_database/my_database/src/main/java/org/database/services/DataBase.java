@@ -1,4 +1,4 @@
-package org.database;
+package org.database.services;
 
 import javax.persistence.*;
 
