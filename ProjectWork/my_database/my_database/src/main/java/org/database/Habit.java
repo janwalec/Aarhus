@@ -16,7 +16,7 @@ public class Habit {
     private String description;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Habit_Cat_ID")
+    @JoinColumn(name = "Habit_Cat_Name")
     private HabitCategory habitCat;
 
 
@@ -63,7 +63,7 @@ public class Habit {
     @Override
     public String toString() {
         return "[HABIT " + name + " id:" + id +
-                "]\n" + "\tdescription: " + description + "\n\t" + habitCat.toString();
+                "]\n" + "\tdescription: " + description + "\n\t" + habitCat.getName();
     }
 
 }

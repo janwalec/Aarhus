@@ -2,12 +2,14 @@ CREATE TABLE User (
     UserName VARCHAR(64) PRIMARY KEY,
     Name VARCHAR(64) NOT NULL,
     Surname VARCHAR(64) NOT NULL,
-	Age INT NOT NULL
+	Age INT NOT NULL,
+	Email VARCHAR(64) NOT NULL,
+	Password VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE HabitCategory (
-    Habit_Cat_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(255) NOT NULL,
+    /*Habit_Cat_ID INT PRIMARY KEY AUTO_INCREMENT,*/
+    Habit_Cat_Name VARCHAR(255) PRIMARY KEY,
     Description VARCHAR(1024)
 );
 
@@ -16,8 +18,8 @@ CREATE TABLE Habit (
     Name VARCHAR(64) NOT NULL,
     Description VARCHAR(1024) NOT NULL,
     
-	Habit_Cat_ID INT,
-	FOREIGN KEY (Habit_Cat_ID) REFERENCES HabitCategory(Habit_Cat_ID)
+	Habit_Cat_Name VARCHAR(255),
+	FOREIGN KEY (Habit_Cat_Name) REFERENCES HabitCategory(Habit_Cat_Name)
 );
 
 CREATE TABLE User_Habit (

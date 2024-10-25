@@ -6,17 +6,18 @@ drop table if exists User;
 drop table if exists HabitCategory;
 drop table if exists Goal;
 
-
 CREATE TABLE User (
     UserName VARCHAR(64) PRIMARY KEY,
     Name VARCHAR(64) NOT NULL,
     Surname VARCHAR(64) NOT NULL,
-	Age INT NOT NULL
+	Age INT NOT NULL,
+	Email VARCHAR(64) NOT NULL,
+	Password VARCHAR(64) NOT NULL
 );
 
 CREATE TABLE HabitCategory (
-    Habit_Cat_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Name VARCHAR(255) NOT NULL,
+    /*Habit_Cat_ID INT PRIMARY KEY AUTO_INCREMENT,*/
+    Habit_Cat_Name VARCHAR(255) PRIMARY KEY,
     Description VARCHAR(1024)
 );
 
@@ -25,8 +26,8 @@ CREATE TABLE Habit (
     Name VARCHAR(64) NOT NULL,
     Description VARCHAR(1024) NOT NULL,
     
-	Habit_Cat_ID INT,
-	FOREIGN KEY (Habit_Cat_ID) REFERENCES HabitCategory(Habit_Cat_ID)
+	Habit_Cat_Name VARCHAR(255),
+	FOREIGN KEY (Habit_Cat_Name) REFERENCES HabitCategory(Habit_Cat_Name)
 );
 
 CREATE TABLE User_Habit (
@@ -66,20 +67,20 @@ CREATE TABLE Entry (
 	FOREIGN KEY (Journal_ID) REFERENCES Journal(Journal_ID)
 );
 
-INSERT INTO User (UserName, Name, Surname, Age) VALUES
-('john_doe', 'John', 'Doe', 30),
-('jane_smith', 'Jane', 'Smith', 28),
-('alice_johnson', 'Alice', 'Johnson', 35);
+INSERT INTO User (UserName, Name, Surname, Age, Email, Password) VALUES
+('john_doe', 'John', 'Doe', 30, 'john_doe@gmail.com', '1234'),
+('jane_smith', 'Jane', 'Smith', 28, 'jane_smith@gmail.com', '3333'),
+('alice_johnson', 'Alice', 'Johnson', 35, 'alice_johnson@gmail.com', 'oooo');
 
-INSERT INTO HabitCategory (Habit_Cat_ID, Name, Description) VALUES
-(1, 'Health', 'Habits related to physical health and fitness.'),
-(2, 'Food', 'Habits to improve eating habits.'),
-(3, 'Sport', 'Habits focused on sport.');
+INSERT INTO HabitCategory (Habit_Cat_Name, Description) VALUES
+('Health', 'Habits related to physical health and fitness.'),
+('Food', 'Habits to improve eating habits.'),
+('Sport', 'Habits focused on sport.');
 
-INSERT INTO Habit (Habit_ID, Name, Description, Habit_Cat_ID) VALUES
-(1, 'Run', 'I like running', 3),
-(2, 'Wake up early', 'I am lazy', 1),
-(3, 'Drink water', 'I like water', 2);
+INSERT INTO Habit (Habit_ID, Name, Description, Habit_Cat_Name) VALUES
+(1, 'Run', 'I like running', 'Sport'),
+(2, 'Wake up early', 'I am lazy', 'Health'),
+(3, 'Drink water', 'I like water', 'Food');
 
 INSERT INTO User_Habit (UserName, Habit_ID) VALUES
 ('john_doe', 1),

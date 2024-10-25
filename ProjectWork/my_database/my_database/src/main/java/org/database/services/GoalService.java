@@ -1,8 +1,10 @@
 package org.database.services;
 
 import org.database.Goal;
+import org.database.HabitCategory;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 public class GoalService extends DataBase{
 
@@ -48,5 +50,17 @@ public class GoalService extends DataBase{
 
         g.setValue(newValue);
         em.getTransaction().commit();
+    }
+
+    @Transactional
+    public void deleteGoal(Goal goalToDelete) {
+        Goal goalInDB = em.find(Goal.class, goalToDelete.getId());
+        if (goalInDB == null) {
+            throw new EntityNotFoundException("HabitCategory " + goalToDelete.getId() + " not found");
+        }
+        em.getTransaction().begin();
+        em.remove(goalInDB);
+        em.getTransaction().commit();
+        System.out.println("Deleted " + goalToDelete.getId());
     }
 }

@@ -5,12 +5,9 @@ import javax.persistence.*;
 
 @Entity
 public class HabitCategory {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Habit_Cat_ID", nullable = false)
-    private Integer id;
 
-    @Column(name = "Name", nullable = false)
+    @Id
+    @Column(name = "Habit_Cat_Name", nullable = false)
     private String name;
 
     @Column(name = "Description", length = 1024)
@@ -23,20 +20,9 @@ public class HabitCategory {
         this.description = description;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -49,7 +35,7 @@ public class HabitCategory {
 
     @Override
     public String toString() {
-        return "[HabitCategory\n" + "\tname: " + name + " ID: " + id +
+        return "[HabitCategory\n" + "\tname: " + name +
                 "\n\tDescription: " + description + "]";
     }
 

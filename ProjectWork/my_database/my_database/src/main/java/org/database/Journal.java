@@ -116,7 +116,7 @@ public class Journal {
     public String toString() {
         return ("[JOURNAL FOR " + user.getUserName() + "]\n" +
                 "\tcurrentStreak: " + currentStreak + "\n\tstartDate: " + startDate + "\n\tendDate: "
-                + endDate + "\n\tactivity type: " + activityType + "\n\thabit: " + habit);
+                + endDate + "\n\tactivity type: " + activityType + "\n\thabit: " + habit.getName());
     }
 
 }

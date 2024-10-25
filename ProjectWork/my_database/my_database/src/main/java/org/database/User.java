@@ -19,21 +19,38 @@ public class User {
     @Column(name = "Age", nullable = false)
     private Integer age;
 
+    @Column(name = "Email", nullable = false)
+    private String email;
+
+    @Column(name = "Password", nullable = false)
+    private String password;
+
     public User(){}
 
-    public User(String userName, String name, String surname, Integer age) {
+    public User(String userName, String name, String surname, Integer age, String email, String password) {
         this.userName = userName;
         this.name = name;
         this.surname = surname;
         this.age = age;
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUserName() {
         return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getName() {
@@ -66,17 +83,18 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User u = (User) o;
-        return Objects.equals(userName, u.userName);
+        return (Objects.equals(userName, u.userName) || Objects.equals(email, u.email));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, surname, userName, age);
+        return Objects.hash(name, surname, userName, age, email, password);
     }
 
     @Override
     public String toString() {
-        return ("[User: " + this.userName + "\n\tName:" + this.name + "\n\tSurname:" + this.surname + "\n\tAge:" + this.age + "]");
+        return ("[User: " + this.userName + "\n\tName:" + this.name + "\n\tSurname:" + this.surname + "\n\tAge:" + this.age
+                + "\n\tEmail: " + email + "\n\tPassword: " + password + "]");
     }
 
 }

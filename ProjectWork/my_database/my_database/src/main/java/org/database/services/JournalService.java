@@ -6,6 +6,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,19 +15,17 @@ public class JournalService extends DataBase {
 
 
     public List<Journal> getUserJournals(User user) {
-        List<Journal> journals = new ArrayList<>();
-        int i = 0;
-        String userName = user.getUserName();
+        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+        CriteriaQuery<Journal> criteriaQuery = criteriaBuilder.createQuery(Journal.class);
+        Root<Journal> root = criteriaQuery.from(Journal.class);
 
-        while (true) {
-            Journal j = em.find(Journal.class, i++);
-            if (j != null)
-                if (j.getUser().getUserName().equals(userName))
-                    journals.add(j);
-                else break;
+        criteriaQuery.select(root).where(criteriaBuilder.equal(root.get("user"), user));
+
+        List<Journal> journals = em.createQuery(criteriaQuery).getResultList();
+
+        if (journals.isEmpty()) {
+            throw new EntityNotFoundException("Journal for " + user.getUserName() + " not found");
         }
-        if (journals.isEmpty())
-            throw new EntityNotFoundException("Journal for " + userName + " not found");
 
         return journals;
     }
@@ -96,5 +95,17 @@ public class JournalService extends DataBase {
                 .where(criteriaBuilder.equal(root.get("journal"), journal));
 
         return em.createQuery(criteriaQuery).getResultList();
+    }
+
+    @Transactional
+    public void deleteJournal(Journal toDelete) {
+        Journal journalInDB = em.find(Journal.class, toDelete.getId());
+        if (journalInDB == null) {
+            throw new EntityNotFoundException("journal " + toDelete.getId() + " not found");
+        }
+        em.getTransaction().begin();
+        em.remove(journalInDB);
+        em.getTransaction().commit();
+        System.out.println("Deleted " + toDelete.getId());
     }
 }

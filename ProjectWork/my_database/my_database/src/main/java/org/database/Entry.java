@@ -65,7 +65,7 @@ public class Entry {
     @Override
     public String toString() {
         return "[Entry ID: " + id +
-                "\n\tDate: " + date + "\n\tValue: " + value + "\n\tJournal: " + journal + "]";
+                "\n\tDate: " + date + "\n\tValue: " + value + "\n\tJournal: " + journal.getId() + "]";
     }
 
 }

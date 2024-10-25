@@ -4,6 +4,7 @@ import org.database.Habit;
 import org.database.HabitCategory;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 public class HabitService extends DataBase {
     public Habit addHabit(String name, String description, HabitCategory habit_cat) {
@@ -43,15 +44,16 @@ public class HabitService extends DataBase {
         em.getTransaction().commit();
     }
 
+    @Transactional
     public void deleteHabit(Habit h) {
         Habit habitInDB = em.find(Habit.class, h.getId());
         if (habitInDB == null) {
             throw new EntityNotFoundException("HabitCategory " + h.getId() + " not found");
         }
 
-        em.getTransaction().begin();
+        //em.getTransaction().begin();
         em.remove(habitInDB);
-        em.getTransaction().commit();
+        //em.getTransaction().commit();
         System.out.println("Deleted " + h);
     }
 

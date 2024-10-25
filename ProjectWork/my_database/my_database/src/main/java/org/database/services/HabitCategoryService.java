@@ -1,7 +1,9 @@
 package org.database.services;
 
+import org.database.Habit;
 import org.database.HabitCategory;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 
 public class HabitCategoryService extends DataBase {
@@ -17,20 +19,25 @@ public class HabitCategoryService extends DataBase {
     public HabitCategory addHabitCategory(String name, String description) {
         HabitCategory to_add = new HabitCategory(name, description);
 
+        HabitCategory habitCategoryInDB = em.find(HabitCategory.class, name);
+
+        if (habitCategoryInDB != null) {
+            throw new EntityExistsException("Habit category " + to_add.getName() + " already exists");
+        }
+
         em.getTransaction().begin();
         em.persist(to_add);
 
         em.getTransaction().commit();
-        System.out.println("Added " + to_add.getId());
+        System.out.println("Added " + to_add.getName());
 
         return to_add; //with id given by auto-increment
     }
 
     public void deleteHabitCategory(HabitCategory habit_cat) {
-        int id = habit_cat.getId();
-        HabitCategory habit_cat_in_db = em.find(HabitCategory.class, habit_cat.getId());
+        HabitCategory habit_cat_in_db = em.find(HabitCategory.class, habit_cat.getName());
         if (habit_cat_in_db == null) {
-            throw new EntityNotFoundException("HabitCategory " + habit_cat.getId() + " not found");
+            throw new EntityNotFoundException("HabitCategory " + habit_cat.getName() + " not found");
         }
 
         em.getTransaction().begin();
@@ -39,26 +46,23 @@ public class HabitCategoryService extends DataBase {
         System.out.println("Deleted " + habit_cat);
     }
 
-    public void changeName(HabitCategory hc, String newName) {
-        HabitCategory hcInDB = em.find(HabitCategory.class, hc.getId());
-        if (hcInDB == null) {
-            throw new EntityNotFoundException("HabitCategory " + hc.getId() + " not found");
-        }
-
-        em.getTransaction().begin();
-        hc.setName(newName);
-        em.getTransaction().commit();
-    }
-
     public void changeDescription(HabitCategory hc, String newDescription) {
-        HabitCategory hcInDB = em.find(HabitCategory.class, hc.getId());
+        HabitCategory hcInDB = em.find(HabitCategory.class, hc.getName());
         if (hcInDB == null) {
-            throw new EntityNotFoundException("HabitCategory " + hc.getId() + " not found");
+            throw new EntityNotFoundException("HabitCategory " + hc.getName() + " not found");
         }
 
         em.getTransaction().begin();
         hc.setDescription(newDescription);
         em.getTransaction().commit();
+    }
+
+    public HabitCategory getHabitCategoryByName(String name) {
+        HabitCategory habitCategoryInDB = em.find(HabitCategory.class, name);
+        if (habitCategoryInDB == null) {
+            throw new EntityNotFoundException("HabitCategory " + name + " not found");
+        }
+        return habitCategoryInDB;
     }
 
 

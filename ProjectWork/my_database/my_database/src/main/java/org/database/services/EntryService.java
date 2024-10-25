@@ -1,9 +1,11 @@
 package org.database.services;
 
 import org.database.Entry;
+import org.database.Goal;
 import org.database.Journal;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
 
 public class EntryService extends DataBase {
     public Entry addEntry(String value, Journal journal) {
@@ -28,5 +30,17 @@ public class EntryService extends DataBase {
 
         e.setValue(newValue);
         em.getTransaction().commit();
+    }
+
+    @Transactional
+    public void deleteEntry(Entry toDelete) {
+        Entry entryInDB = em.find(Entry.class, toDelete.getId());
+        if (entryInDB == null) {
+            throw new EntityNotFoundException("HabitCategory " + toDelete.getId() + " not found");
+        }
+        em.getTransaction().begin();
+        em.remove(entryInDB);
+        em.getTransaction().commit();
+        System.out.println("Deleted " + toDelete.getId());
     }
 }
