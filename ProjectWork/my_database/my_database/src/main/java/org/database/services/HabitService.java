@@ -51,9 +51,9 @@ public class HabitService extends DataBase {
             throw new EntityNotFoundException("HabitCategory " + h.getId() + " not found");
         }
 
-        //em.getTransaction().begin();
+        em.getTransaction().begin();
         em.remove(habitInDB);
-        //em.getTransaction().commit();
+        em.getTransaction().commit();
         System.out.println("Deleted " + h);
     }
 

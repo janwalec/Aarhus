@@ -43,9 +43,11 @@ public class DeleterService extends DataBase {
         JournalService journalService = new JournalService();
         GoalService goalService = new GoalService();
         EntryService entryService = new EntryService();
+        HabitService habitService = new HabitService();
 
         // get goal to delete
         Goal goalToDelete = journalToDelete.getGoal();
+        Habit habitToDelete = journalToDelete.getHabit();
 
         // get entries to delete
         List<Entry> entries = journalService.getAllEntriesByJournal(journalToDelete);
@@ -54,9 +56,13 @@ public class DeleterService extends DataBase {
         for (Entry entry : entries) {
             entryService.deleteEntry(entry);
         }
+
         journalService.deleteJournal(journalToDelete);
         goalService.deleteGoal(goalToDelete);
+        habitService.deleteHabit(habitToDelete);
 
+
+        habitService.stopConnection();
         journalService.stopConnection();
         goalService.stopConnection();
         entryService.stopConnection();
