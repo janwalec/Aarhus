@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.database.services.*;
+import org.database.*;
+
 import java.io.IOException;
 
 
@@ -17,7 +19,10 @@ public class HelloApplication extends Application {
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
         DataBase db = new DataBase();
+        db.testConnection();
+
     }
 
     public static void main(String[] args) {
