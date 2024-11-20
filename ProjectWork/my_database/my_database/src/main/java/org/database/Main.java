@@ -29,10 +29,13 @@ public class Main {
                 PK - auto-Increment
          */
 
-        Examples examples = new Examples();
-        examples.ex();
-
-
+        //Examples examples = new Examples();
+        //examples.ex();
+        DataBase dataBase = new DataBase();
+        dataBase.testConnection();
+        UserService userService = new UserService();
+        //    public User(String userName, String name, String surname, Integer age, String email, String password) {
+        userService.addUser("testUser", "test", "user", 12, "email@email.com", "adss");
 
 
     }
