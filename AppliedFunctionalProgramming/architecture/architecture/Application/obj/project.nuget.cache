@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Bgm8PaNnyA4=",
+  "success": true,
+  "projectFilePath": "/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/Application.fsproj",
+  "expectedPackageFiles": [
+    "/home/jas/.nuget/packages/fsharp.core/8.0.400/fsharp.core.8.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}

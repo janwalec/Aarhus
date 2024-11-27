@@ -1,0 +1,5 @@
+/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/obj/Debug/net8.0/Application.fsproj.AssemblyReference.cache
+/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/obj/Debug/net8.0/Application.AssemblyInfoInputs.cache
+/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/obj/Debug/net8.0/Application.AssemblyInfo.fs
+/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/obj/Debug/net8.0/Application.fsproj.CoreCompileInputs.cache
+/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/architecture/architecture/Application/obj/Debug/net8.0/Application.sourcelink.json
