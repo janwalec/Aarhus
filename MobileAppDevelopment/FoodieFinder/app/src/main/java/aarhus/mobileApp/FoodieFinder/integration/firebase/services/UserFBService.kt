@@ -26,7 +26,7 @@ class UserFBService {
 
     fun saveUser(user: UserFB) {
         db.collection(USERS_COLLECTION_NAME)
-            .document(user.id)
+                .document(user.id)
             .set(user)
 
     }

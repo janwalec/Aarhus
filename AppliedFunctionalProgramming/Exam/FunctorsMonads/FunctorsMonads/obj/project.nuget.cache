@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "r6+MkM7b4rY=",
+  "success": true,
+  "projectFilePath": "/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/Exam/FunctorsMonads/FunctorsMonads/FunctorsMonads.fsproj",
+  "expectedPackageFiles": [
+    "/home/jas/.nuget/packages/fsharp.core/8.0.102/fsharp.core.8.0.102.nupkg.sha512"
+  ],
+  "logs": []
+}

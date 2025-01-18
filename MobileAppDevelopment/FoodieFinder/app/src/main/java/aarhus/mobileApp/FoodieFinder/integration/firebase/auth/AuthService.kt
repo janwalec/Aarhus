@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 import kotlinx.coroutines.tasks.await
 
-class AuthService {
+class  AuthService {
     private val auth: FirebaseAuth = Firebase.auth
     private val userService: UserFBService = UserFBService()
 
