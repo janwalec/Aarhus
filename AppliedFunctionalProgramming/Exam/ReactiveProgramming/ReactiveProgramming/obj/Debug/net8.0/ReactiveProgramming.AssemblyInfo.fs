@@ -7,11 +7,11 @@ open System
 open System.Reflection
 
 
-[<assembly: System.Reflection.AssemblyCompanyAttribute("FunctorsMonads")>]
+[<assembly: System.Reflection.AssemblyCompanyAttribute("ReactiveProgramming")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
 [<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f699c345a7108dbdef3d8d26cd616dba14674cfe")>]
-[<assembly: System.Reflection.AssemblyProductAttribute("FunctorsMonads")>]
-[<assembly: System.Reflection.AssemblyTitleAttribute("FunctorsMonads")>]
+[<assembly: System.Reflection.AssemblyProductAttribute("ReactiveProgramming")>]
+[<assembly: System.Reflection.AssemblyTitleAttribute("ReactiveProgramming")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
 do()
