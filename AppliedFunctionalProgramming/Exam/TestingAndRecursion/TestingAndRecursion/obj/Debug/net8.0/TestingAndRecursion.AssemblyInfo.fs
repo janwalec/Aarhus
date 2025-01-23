@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("TestingAndRecursion")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f699c345a7108dbdef3d8d26cd616dba14674cfe")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e1b04345fa1a7f28394652f31e0f7874812bd9e")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("TestingAndRecursion")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("TestingAndRecursion")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]

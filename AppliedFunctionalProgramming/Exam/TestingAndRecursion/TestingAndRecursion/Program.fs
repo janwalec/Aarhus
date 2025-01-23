@@ -38,7 +38,7 @@ printfn "5."
 let rec bigListC continuationFun = function
     | 0 -> continuationFun []  
     | n -> bigListC            
-             (fun res ->       // Create a new continuation function
+             ( fun res ->      // Create a new continuation function
                  printfn "\tres: %A; execute: %A" (res) (n - 1)
                  continuationFun ((n - 1) :: res)
              )
@@ -59,9 +59,12 @@ printfn "6. Tail recursive and accumulator: %A" (reverse_list [1; 2; 3; 4])
 
 
 
+
+
 printfn "\nFSCheck\n7. property based:"
 let add x y = x + y// correct implementation
 
+[<Property>]
 let commutativeProperty (x,y) =
   let result1 = add x y
   let result2 = add y x

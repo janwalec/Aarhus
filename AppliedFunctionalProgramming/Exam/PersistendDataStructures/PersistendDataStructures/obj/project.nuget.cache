@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7PYZm6yptmw=",
+  "success": true,
+  "projectFilePath": "/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/Exam/PersistendDataStructures/PersistendDataStructures/PersistendDataStructures.fsproj",
+  "expectedPackageFiles": [
+    "/home/jas/.nuget/packages/fsharp.core/8.0.102/fsharp.core.8.0.102.nupkg.sha512"
+  ],
+  "logs": []
+}

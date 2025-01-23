@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "csv6PqJL2Tk=",
+  "success": true,
+  "projectFilePath": "/home/jas/Documents/Aarhus/AppliedFunctionalProgramming/Exam/ErrorHandling/ErrorHandling/ErrorHandling.fsproj",
+  "expectedPackageFiles": [
+    "/home/jas/.nuget/packages/fsharp.core/8.0.102/fsharp.core.8.0.102.nupkg.sha512"
+  ],
+  "logs": []
+}
